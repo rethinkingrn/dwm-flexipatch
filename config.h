@@ -17,10 +17,10 @@ static const int swallowfloating         = 0;   /* 1 means swallow floating wind
 static int nomodbuttons                  = 1;   /* allow client mouse button bindings that have no modifier */
 #endif // NO_MOD_BUTTONS_PATCH
 #if VANITYGAPS_PATCH
-static const unsigned int gappih         = 10;  /* horiz inner gap between windows */
-static const unsigned int gappiv         = 10;  /* vert inner gap between windows */
-static const unsigned int gappoh         = 10;  /* horiz outer gap between windows and screen edge */
-static const unsigned int gappov         = 10;  /* vert outer gap between windows and screen edge */
+static const unsigned int gappih         = 25;  /* horiz inner gap between windows */
+static const unsigned int gappiv         = 25;  /* vert inner gap between windows */
+static const unsigned int gappoh         = 25;  /* horiz outer gap between windows and screen edge */
+static const unsigned int gappov         = 25;  /* vert outer gap between windows and screen edge */
 static const int smartgaps               = 0;   /* 1 means no outer gap when there is only one window */
 #endif // VANITYGAPS_PATCH
 #if AUTOSTART_PATCH
@@ -103,11 +103,13 @@ static void (*bartabmonfns[])(Monitor *) = { NULL /* , customlayoutfn */ };
 #endif // MONOCLE_LAYOUT
 #endif // BAR_TABGROUPS_PATCH
 #if BAR_PANGO_PATCH
-static const char font[]                 = "monospace 10";
+static const char font[]                 = "monospace 12";
 #else
-static const char *fonts[]               = { "GohuFont Nerd Font:size=11" };
+static const char *fonts[]     = {"Mononoki Nerd Font:size=13:antialias=true:autohint=true",
+                                  "FiraCode Nerd Font Mono:size=20:antialias=true:autohint=true",
+						     	};
 #endif // BAR_PANGO_PATCH
-static const char dmenufont[]            = "GohuFont Nerd Font:size=10";
+static const char dmenufont[]            = "GohuFont Nerd Font:size=12";
 
 #if BAR_FLEXWINTITLE_PATCH
 static char c000000[]                    = "#000000"; // placeholder value
@@ -324,6 +326,7 @@ static const char *layoutmenu_cmd = "layoutmenu.sh";
 #if COOL_AUTOSTART_PATCH
 static const char *const autostart[] = {
 	"picom", "--experimental-backends", NULL,
+	"urxvtd", NULL,
 	"slstatus", NULL,
 	"dunst", NULL,
 	"feh", "--bg-fill", "/home/matthew/Downloads/gentoo.png", NULL,
@@ -367,7 +370,7 @@ static Sp scratchpads[] = {
  * them. This works seamlessly with alternative tags and alttagsdecoration patches.
  */
 static char *tagicons[][NUMTAGS*2] = {
-	[DEFAULT_TAGS]        = { "", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F", "G", "H", "I" },
+	[DEFAULT_TAGS]        = { "", "", "", "", "調", "", "7", "8", "", "1", "2", "3", "4", "5", "6", "7", "8", "9" },
 };
 
 #if BAR_TAGGRID_PATCH
@@ -413,11 +416,10 @@ static const Rule rules[] = {
 	RULE(.wintype = WTYPE "UTILITY", .isfloating = 1)
 	RULE(.wintype = WTYPE "TOOLBAR", .isfloating = 1)
 	RULE(.wintype = WTYPE "SPLASH", .isfloating = 1)
-	RULE(.class = "Gimp", .tags = 1 << 4)
 	RULE(.class = "lunarclient", .isfloating = 1)
-	RULE(.class = "Firefox", .tags = 1 << 7)
-	RULE(.class = "VSCodium", .tags = 1 << 0)
-	RULE(.class = "discord", .tags = 1 << 1)
+	RULE(.class = "Firefox", .tags = 1 << 3)
+	RULE(.class = "VSCodium", .tags = 1 << 1)
+	RULE(.class = "discord", .tags = 1 << 2)
 	#if SCRATCHPADS_PATCH
 	RULE(.instance = "spterm", .tags = SPTAG(0), .isfloating = 1)
 	#endif // SCRATCHPADS_PATCH
@@ -769,7 +771,8 @@ static const char *dmenucmd[] = {
 	#endif // BAR_DMENUMATCHTOP_PATCH
 	NULL
 };
-static const char *termcmd[]  = { "st", NULL };
+/* Default Terminal */
+static const char *termcmd[]  = { "urxvtc", NULL };
 
 #if BAR_STATUSCMD_PATCH && !BAR_DWMBLOCKS_PATCH
 /* commands spawned when clicking statusbar, the mouse button pressed is exported as BUTTON */
