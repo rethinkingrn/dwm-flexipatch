@@ -105,7 +105,7 @@ static void (*bartabmonfns[])(Monitor *) = { NULL /* , customlayoutfn */ };
 #if BAR_PANGO_PATCH
 static const char font[]                 = "monospace 12";
 #else
-static const char *fonts[]     = {"Mononoki Nerd Font:size=13:antialias=true:autohint=true",
+static const char *fonts[]     = {"mononoki Nerd Font:size=13:antialias=true:autohint=true",
                                   "FiraCode Nerd Font Mono:size=20:antialias=true:autohint=true",
 						     	};
 #endif // BAR_PANGO_PATCH
@@ -326,10 +326,9 @@ static const char *layoutmenu_cmd = "layoutmenu.sh";
 #if COOL_AUTOSTART_PATCH
 static const char *const autostart[] = {
 	"picom", "--experimental-backends", NULL,
-	"urxvtd", NULL,
 	"slstatus", NULL,
 	"dunst", NULL,
-	"feh", "--bg-fill", "/home/matthew/Downloads/gentoo.png", NULL,
+	"feh", "--bg-fill", "/home/matthew/Downloads/7AZl87y.png", NULL,
 	NULL /* terminate */
 };
 #endif // COOL_AUTOSTART_PATCH
@@ -420,6 +419,8 @@ static const Rule rules[] = {
 	RULE(.class = "Firefox", .tags = 1 << 3)
 	RULE(.class = "VSCodium", .tags = 1 << 1)
 	RULE(.class = "discord", .tags = 1 << 2)
+	RULE(.class = "Steam", .tags = 1 << 4)
+	RULE(.class = "Pcmanfm", .tags = 1 << 5)
 	#if SCRATCHPADS_PATCH
 	RULE(.instance = "spterm", .tags = SPTAG(0), .isfloating = 1)
 	#endif // SCRATCHPADS_PATCH
@@ -772,7 +773,7 @@ static const char *dmenucmd[] = {
 	NULL
 };
 /* Default Terminal */
-static const char *termcmd[]  = { "urxvtc", NULL };
+static const char *termcmd[]  = { "kitty", NULL };
 
 #if BAR_STATUSCMD_PATCH && !BAR_DWMBLOCKS_PATCH
 /* commands spawned when clicking statusbar, the mouse button pressed is exported as BUTTON */
