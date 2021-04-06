@@ -105,7 +105,7 @@ static void (*bartabmonfns[])(Monitor *) = { NULL /* , customlayoutfn */ };
 #if BAR_PANGO_PATCH
 static const char font[]                 = "monospace 12";
 #else
-static const char *fonts[]     = {"mononoki Nerd Font:size=13:antialias=true:autohint=true",
+static const char *fonts[]     = {"mononoki Nerd Font:size=12:antialias=true:autohint=true",
                                   "FiraCode Nerd Font Mono:size=20:antialias=true:autohint=true",
 						     	};
 #endif // BAR_PANGO_PATCH
