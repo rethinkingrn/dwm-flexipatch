@@ -117,44 +117,44 @@ static char c000000[]                    = "#000000"; // placeholder value
 
 // THE COLORS //
 static char normfgcolor[]                = "#bd93f9";
-static char normbgcolor[]                = "#222222";
-static char normbordercolor[]            = "#444444";
-static char normfloatcolor[]             = "#bd93f9";
+static char normbgcolor[]                = "#2e3440";
+static char normbordercolor[]            = "#2e3440";
+static char normfloatcolor[]             = "#88c0d0";
 
 static char selfgcolor[]                 = "#f8f8f2";
-static char selbgcolor[]                 = "#bd93f9";
+static char selbgcolor[]                 = "#2e3440";
 static char selbordercolor[]             = "#bd93f9";
-static char selfloatcolor[]              = "#bd93f9";
+static char selfloatcolor[]              = "#88c0d0";
 
-static char titlenormfgcolor[]           = "#bd93f9";
-static char titlenormbgcolor[]           = "#222222";
-static char titlenormbordercolor[]       = "#444444";
-static char titlenormfloatcolor[]        = "#bd93f9";
+static char titlenormfgcolor[]           = "#88c0d0";
+static char titlenormbgcolor[]           = "#2e3440";
+static char titlenormbordercolor[]       = "#88c0d0";
+static char titlenormfloatcolor[]        = "#88c0d0";
 
 static char titleselfgcolor[]            = "#f8f8f2";
 static char titleselbgcolor[]            = "#bd93f9";
-static char titleselbordercolor[]        = "#bd93f9";
-static char titleselfloatcolor[]         = "#bd93f9";
+static char titleselbordercolor[]        = "#88c0d0";
+static char titleselfloatcolor[]         = "#88c0d0";
 
 static char tagsnormfgcolor[]            = "#bd93f9";
-static char tagsnormbgcolor[]            = "#222222";
-static char tagsnormbordercolor[]        = "#444444";
-static char tagsnormfloatcolor[]         = "#bd93f9";
+static char tagsnormbgcolor[]            = "#2e3440";
+static char tagsnormbordercolor[]        = "#88c0d0";
+static char tagsnormfloatcolor[]         = "#88c0d0";
 
 static char tagsselfgcolor[]             = "#f8f8f2";
-static char tagsselbgcolor[]             = "#bd93f9";
-static char tagsselbordercolor[]         = "#bd93f9";
-static char tagsselfloatcolor[]          = "#bd93f9";
+static char tagsselbgcolor[]             = "#2e3440";
+static char tagsselbordercolor[]         = "#88c0d0";
+static char tagsselfloatcolor[]          = "#88c0d0";
 
-static char hidfgcolor[]                 = "#bd93f9";
-static char hidbgcolor[]                 = "#222222";
-static char hidbordercolor[]             = "#bd93f9";
+static char hidfgcolor[]                 = "#88c0d0";
+static char hidbgcolor[]                 = "#2e3440";
+static char hidbordercolor[]             = "#88c0d0";
 static char hidfloatcolor[]              = "#f76e0c";
 
-static char urgfgcolor[]                 = "#bd93f9";
-static char urgbgcolor[]                 = "#222222";
-static char urgbordercolor[]             = "#bd93f9";
-static char urgfloatcolor[]              = "#bd93f9";
+static char urgfgcolor[]                 = "#88c0d0";
+static char urgbgcolor[]                 = "#2e3440";
+static char urgbordercolor[]             = "#88c0d0";
+static char urgfloatcolor[]              = "#88c0d0";
 
 #if BAR_FLEXWINTITLE_PATCH
 static char normTTBbgcolor[]             = "#330000";
@@ -773,7 +773,7 @@ static const char *dmenucmd[] = {
 	NULL
 };
 /* Default Terminal */
-static const char *termcmd[]  = { "kitty", NULL };
+static const char *termcmd[]  = { "st", NULL };
 
 #if BAR_STATUSCMD_PATCH && !BAR_DWMBLOCKS_PATCH
 /* commands spawned when clicking statusbar, the mouse button pressed is exported as BUTTON */
