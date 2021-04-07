@@ -116,43 +116,43 @@ static char c000000[]                    = "#000000"; // placeholder value
 #endif // BAR_FLEXWINTITLE_PATCH
 
 // THE COLORS //
-static char normfgcolor[]                = "#bd93f9";
-static char normbgcolor[]                = "#2e3440";
+static char normfgcolor[]                = "#81a1c1";
+static char normbgcolor[]                = "#3b4252";
 static char normbordercolor[]            = "#2e3440";
 static char normfloatcolor[]             = "#88c0d0";
 
 static char selfgcolor[]                 = "#f8f8f2";
-static char selbgcolor[]                 = "#2e3440";
-static char selbordercolor[]             = "#bd93f9";
+static char selbgcolor[]                 = "#3b4252";
+static char selbordercolor[]             = "#81a1c1";
 static char selfloatcolor[]              = "#88c0d0";
 
 static char titlenormfgcolor[]           = "#88c0d0";
-static char titlenormbgcolor[]           = "#2e3440";
+static char titlenormbgcolor[]           = "#3b4252";
 static char titlenormbordercolor[]       = "#88c0d0";
 static char titlenormfloatcolor[]        = "#88c0d0";
 
 static char titleselfgcolor[]            = "#f8f8f2";
-static char titleselbgcolor[]            = "#bd93f9";
+static char titleselbgcolor[]            = "#81a1c1";
 static char titleselbordercolor[]        = "#88c0d0";
 static char titleselfloatcolor[]         = "#88c0d0";
 
-static char tagsnormfgcolor[]            = "#bd93f9";
-static char tagsnormbgcolor[]            = "#2e3440";
+static char tagsnormfgcolor[]            = "#81a1c1";
+static char tagsnormbgcolor[]            = "#3b4252";
 static char tagsnormbordercolor[]        = "#88c0d0";
 static char tagsnormfloatcolor[]         = "#88c0d0";
 
 static char tagsselfgcolor[]             = "#f8f8f2";
-static char tagsselbgcolor[]             = "#2e3440";
+static char tagsselbgcolor[]             = "#3b4252";
 static char tagsselbordercolor[]         = "#88c0d0";
 static char tagsselfloatcolor[]          = "#88c0d0";
 
 static char hidfgcolor[]                 = "#88c0d0";
-static char hidbgcolor[]                 = "#2e3440";
+static char hidbgcolor[]                 = "#3b4252";
 static char hidbordercolor[]             = "#88c0d0";
 static char hidfloatcolor[]              = "#f76e0c";
 
 static char urgfgcolor[]                 = "#88c0d0";
-static char urgbgcolor[]                 = "#2e3440";
+static char urgbgcolor[]                 = "#3b4252";
 static char urgbordercolor[]             = "#88c0d0";
 static char urgfloatcolor[]              = "#88c0d0";
 
@@ -328,7 +328,7 @@ static const char *const autostart[] = {
 	"picom", "--experimental-backends", NULL,
 	"slstatus", NULL,
 	"dunst", NULL,
-	"feh", "--bg-fill", "/home/matthew/Downloads/7AZl87y.png", NULL,
+	"feh", "--bg-fill", "/home/matthew/Downloads/FRxscG4.png", NULL,
 	NULL /* terminate */
 };
 #endif // COOL_AUTOSTART_PATCH
@@ -430,14 +430,14 @@ static const Rule rules[] = {
 #if PERTAG_PATCH
 static const MonitorRule monrules[] = {
 	/* monitor  tag   layout  mfact  nmaster  showbar  topbar */
-	{  1,       -1,   2,      -1,    -1,      -1,      -1     }, // use a different layout for the second monitor
+	{  1,       -1,   0,      -1,    -1,      -1,      -1     }, // use a different layout for the second monitor
 	{  -1,      -1,   0,      -1,    -1,      -1,      -1     }, // default
 };
 #else
 static const MonitorRule monrules[] = {
 	/* monitor  layout  mfact  nmaster  showbar  topbar */
-	{  1,       2,      -1,    -1,      -1,      -1     }, // use a different layout for the second monitor
-	{  -1,      0,      -1,    -1,      -1,      -1     }, // default
+	/*{  1,       2,      -1,    -1,      -1,      -1     },*/ // use a different layout for the second monitor
+	{  -1,      2,      -1,    -1,      -1,      -1     }, // default
 };
 #endif // PERTAG_PATCH
 #endif // MONITOR_RULES_PATCH
