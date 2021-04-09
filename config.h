@@ -5,10 +5,10 @@ static const char *roficmd[] = { "rofi", "-show", "drun", "-show-icons", NULL };
 static const char *screenshot[] = { "flameshot", "gui", NULL };
 /* appearance */
 #if ROUNDED_CORNERS_PATCH
-static const unsigned int borderpx       = 0;   /* border pixel of windows */
+static const unsigned int borderpx       = 5;   /* border pixel of windows */
 static const int corner_radius           = 10;
 #else
-static const unsigned int borderpx       = 0;   /* border pixel of windows */
+static const unsigned int borderpx       = 3;   /* border pixel of windows */
 #endif // ROUNDED_CORNERS_PATCH
 static const unsigned int snap           = 0;  /* snap pixel */
 #if SWALLOW_PATCH
@@ -118,17 +118,17 @@ static char c000000[]                    = "#000000"; // placeholder value
 
 // THE COLORS //
 static char normfgcolor[]                = "#81a1c1";
-static char normbgcolor[]                = "#3b4252";
-static char normbordercolor[]            = "#2e3440";
+static char normbgcolor[]                = "#282a36";
+static char normbordercolor[]            = "#282a36";
 static char normfloatcolor[]             = "#88c0d0";
 
 static char selfgcolor[]                 = "#f8f8f2";
-static char selbgcolor[]                 = "#3b4252";
-static char selbordercolor[]             = "#81a1c1";
+static char selbgcolor[]                 = "#282a36";
+static char selbordercolor[]             = "#282a36";
 static char selfloatcolor[]              = "#88c0d0";
 
 static char titlenormfgcolor[]           = "#88c0d0";
-static char titlenormbgcolor[]           = "#3b4252";
+static char titlenormbgcolor[]           = "#282a36";
 static char titlenormbordercolor[]       = "#88c0d0";
 static char titlenormfloatcolor[]        = "#88c0d0";
 
@@ -138,22 +138,22 @@ static char titleselbordercolor[]        = "#88c0d0";
 static char titleselfloatcolor[]         = "#88c0d0";
 
 static char tagsnormfgcolor[]            = "#81a1c1";
-static char tagsnormbgcolor[]            = "#3b4252";
+static char tagsnormbgcolor[]            = "#282a36";
 static char tagsnormbordercolor[]        = "#88c0d0";
 static char tagsnormfloatcolor[]         = "#88c0d0";
 
 static char tagsselfgcolor[]             = "#f8f8f2";
-static char tagsselbgcolor[]             = "#3b4252";
+static char tagsselbgcolor[]             = "#282a36";
 static char tagsselbordercolor[]         = "#88c0d0";
 static char tagsselfloatcolor[]          = "#88c0d0";
 
 static char hidfgcolor[]                 = "#88c0d0";
-static char hidbgcolor[]                 = "#3b4252";
+static char hidbgcolor[]                 = "#282a36";
 static char hidbordercolor[]             = "#88c0d0";
 static char hidfloatcolor[]              = "#f76e0c";
 
 static char urgfgcolor[]                 = "#88c0d0";
-static char urgbgcolor[]                 = "#3b4252";
+static char urgbgcolor[]                 = "#282a36";
 static char urgbordercolor[]             = "#2e3440";
 static char urgfloatcolor[]              = "#88c0d0";
 
