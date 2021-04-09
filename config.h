@@ -2,14 +2,15 @@
 
 /* rofi things */
 static const char *roficmd[] = { "rofi", "-show", "drun", "-show-icons", NULL };
+static const char *screenshot[] = { "flameshot", "gui", NULL };
 /* appearance */
 #if ROUNDED_CORNERS_PATCH
 static const unsigned int borderpx       = 0;   /* border pixel of windows */
 static const int corner_radius           = 10;
 #else
-static const unsigned int borderpx       = 2;   /* border pixel of windows */
+static const unsigned int borderpx       = 0;   /* border pixel of windows */
 #endif // ROUNDED_CORNERS_PATCH
-static const unsigned int snap           = 32;  /* snap pixel */
+static const unsigned int snap           = 0;  /* snap pixel */
 #if SWALLOW_PATCH
 static const int swallowfloating         = 0;   /* 1 means swallow floating windows by default */
 #endif // SWALLOW_PATCH
@@ -82,7 +83,7 @@ static const unsigned int systrayspacing = 2;   /* systray spacing */
 static const int showsystray             = 1;   /* 0 means no systray */
 #endif // BAR_SYSTRAY_PATCH
 /* Indicators: see patch/bar_indicators.h for options */
-static int tagindicatortype              = INDICATOR_TOP_LEFT_SQUARE;
+static int tagindicatortype              = INDICATOR_TOP_BAR;
 static int tiledindicatortype            = INDICATOR_NONE;
 static int floatindicatortype            = INDICATOR_TOP_LEFT_SQUARE;
 #if FAKEFULLSCREEN_CLIENT_PATCH
@@ -103,10 +104,10 @@ static void (*bartabmonfns[])(Monitor *) = { NULL /* , customlayoutfn */ };
 #endif // MONOCLE_LAYOUT
 #endif // BAR_TABGROUPS_PATCH
 #if BAR_PANGO_PATCH
-static const char font[]                 = "monospace 12";
+static const char font[]                 = "GohuFont Nerd Font 12";
 #else
 static const char *fonts[]     = {"mononoki Nerd Font:size=12:antialias=true:autohint=true",
-                                  "FiraCode Nerd Font Mono:size=20:antialias=true:autohint=true",
+                                  "FontAwesome:size=1:antialias=true:autohint=true",
 						     	};
 #endif // BAR_PANGO_PATCH
 static const char dmenufont[]            = "GohuFont Nerd Font:size=12";
@@ -153,7 +154,7 @@ static char hidfloatcolor[]              = "#f76e0c";
 
 static char urgfgcolor[]                 = "#88c0d0";
 static char urgbgcolor[]                 = "#3b4252";
-static char urgbordercolor[]             = "#88c0d0";
+static char urgbordercolor[]             = "#2e3440";
 static char urgfloatcolor[]              = "#88c0d0";
 
 #if BAR_FLEXWINTITLE_PATCH
@@ -320,7 +321,7 @@ static char *statuscolors[][ColCount] = {
 #endif // BAR_POWERLINE_STATUS_PATCH
 
 #if BAR_LAYOUTMENU_PATCH
-static const char *layoutmenu_cmd = "layoutmenu.sh";
+static const char *layoutmenu_cmd = "/home/matthew/scripts/layoutmenu.sh";
 #endif
 
 #if COOL_AUTOSTART_PATCH
@@ -328,7 +329,7 @@ static const char *const autostart[] = {
 	"picom", "--experimental-backends", NULL,
 	"slstatus", NULL,
 	"dunst", NULL,
-	"feh", "--bg-fill", "/home/matthew/Downloads/FRxscG4.png", NULL,
+	"feh", "--bg-fill", "Downloads/321322.png", NULL,
 	NULL /* terminate */
 };
 #endif // COOL_AUTOSTART_PATCH
@@ -368,8 +369,12 @@ static Sp scratchpads[] = {
  * until it an icon matches. Similarly if there are two tag icons then it would alternate between
  * them. This works seamlessly with alternative tags and alttagsdecoration patches.
  */
+/*static char *tagicons[][NUMTAGS*2] = {
+	[DEFAULT_TAGS]        = { "", "", "", "", "", "", "7", "8", "", "", "", "", "", "", "", "", "", "" },
+}; */
+
 static char *tagicons[][NUMTAGS*2] = {
-	[DEFAULT_TAGS]        = { "", "", "", "", "調", "", "7", "8", "", "1", "2", "3", "4", "5", "6", "7", "8", "9" },
+	[DEFAULT_TAGS]        = { "home", "dev", "msg", "www", "game", "file", "7", "8", "spt", "", "", "", "", "", "", "", "", "" },
 };
 
 #if BAR_TAGGRID_PATCH
@@ -415,7 +420,8 @@ static const Rule rules[] = {
 	RULE(.wintype = WTYPE "UTILITY", .isfloating = 1)
 	RULE(.wintype = WTYPE "TOOLBAR", .isfloating = 1)
 	RULE(.wintype = WTYPE "SPLASH", .isfloating = 1)
-	RULE(.class = "lunarclient", .isfloating = 1)
+	RULE(.class = "net-runelite-launcher-launcher", .tags = 1 << 4)
+	RULE(.class = "lunarclient", .tags = 1 << 4)
 	RULE(.class = "Firefox", .tags = 1 << 3)
 	RULE(.class = "VSCodium", .tags = 1 << 1)
 	RULE(.class = "discord", .tags = 1 << 2)
@@ -486,7 +492,7 @@ static const BarRule barrules[] = {
 	#if BAR_STATUS2D_PATCH && BAR_STATUSCMD_PATCH
 	{ 'A',      0,     BAR_ALIGN_RIGHT,  width_status2d,          draw_status2d,          click_statuscmd,         "status2d" },
 	#elif BAR_STATUS2D_PATCH
-	{ 'A',      0,     BAR_ALIGN_RIGHT,  width_status2d,          draw_status2d,          click_status2d,          "status2d" },
+	{ '-1',      0,     BAR_ALIGN_RIGHT,  width_status2d,          draw_status2d,          click_status2d,          "status2d" },
 	#elif BAR_POWERLINE_STATUS_PATCH
 	{  0,       0,     BAR_ALIGN_RIGHT,  width_pwrl_status,       draw_pwrl_status,       click_pwrl_status,       "powerline_status" },
 	#elif BAR_STATUS_PATCH && BAR_STATUSCMD_PATCH
@@ -792,6 +798,7 @@ static Key on_empty_keys[] = {
 static Key keys[] = {
 	/* modifier                     key            function                argument */
 	{ MODKEY|ShiftMask,  XK_d, spawn, {.v = roficmd } },
+	{ MODKEY,  XK_Print, spawn, {.v = screenshot } },
 	#if KEYMODES_PATCH
 	{ MODKEY,                       XK_Escape,     setkeymode,             {.ui = COMMANDMODE} },
 	#endif // KEYMODES_PATCH

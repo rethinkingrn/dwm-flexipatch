@@ -49,8 +49,7 @@
  *   - The text of the menu items is for display only. Name them however you want.
  * https://dwm.suckless.org/patches/layoutmenu/
  */
-#define BAR_LAYOUTMENU_PATCH 0
-
+#define BAR_LAYOUTMENU_PATCH 1
 /* Show layout symbol in bar */
 #define BAR_LTSYMBOL_PATCH 1
 
@@ -796,7 +795,7 @@
  * when including this patch. You will also want to set "borderpx = 0;" in your config.h.
  * https://github.com/mitchweaver/suckless/blob/master/dwm/patches_mitch/mitch-06-rounded_corners-db6093f6ec1bb884f7540f2512935b5254750b30.patch
  */
-#define ROUNDED_CORNERS_PATCH 0
+#define ROUNDED_CORNERS_PATCH 1
 
 /* This patch saves size and position of every floating window before it is forced
  * into tiled mode. If the window is made floating again then the old dimensions
@@ -1123,17 +1122,17 @@
 /* Bottomstack layout.
  * https://dwm.suckless.org/patches/bottomstack/
  */
-#define BSTACK_LAYOUT 0
+#define BSTACK_LAYOUT 1
 
 /* Bottomstack horizontal layout.
  * https://dwm.suckless.org/patches/bottomstack/
  */
-#define BSTACKHORIZ_LAYOUT 0
+#define BSTACKHORIZ_LAYOUT 1
 
 /* Centered master layout.
  * https://dwm.suckless.org/patches/centeredmaster/
  */
-#define CENTEREDMASTER_LAYOUT 0
+#define CENTEREDMASTER_LAYOUT 1
 
 /* Centered floating master layout.
  * https://dwm.suckless.org/patches/centeredmaster/
@@ -1144,7 +1143,7 @@
  * columns (i.e. left to right).
  * https://dwm.suckless.org/patches/columns/
  */
-#define COLUMNS_LAYOUT 0
+#define COLUMNS_LAYOUT 1
 
 /* Deck layout.
  * https://dwm.suckless.org/patches/deck/
@@ -1165,7 +1164,7 @@
  * A revamped, more flexible, and over-the-top version of the original flextile layout.
  * https://dwm.suckless.org/patches/flextile/ (original)
  */
-#define FLEXTILE_DELUXE_LAYOUT 1
+#define FLEXTILE_DELUXE_LAYOUT 0
 
 /* Gappless grid layout.
  * https://dwm.suckless.org/patches/gaplessgrid/
