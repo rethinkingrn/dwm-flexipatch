@@ -43,18 +43,18 @@ static const int showbar                 = 1;   /* 0 means no bar */
 static const int topbar                  = 1;   /* 0 means bottom bar */
 #if TAB_PATCH
 /*  Display modes of the tab bar: never shown, always shown, shown only in  */
-/*  monocle mode in the presence of several windows.                        */
+/*  monocle mode in the presence of several windows.                        */|
 /*  Modes after showtab_nmodes are disabled.                                */
 enum showtab_modes { showtab_never, showtab_auto, showtab_nmodes, showtab_always};
 static const int showtab                 = showtab_auto;        /* Default tab bar show mode */
 static const int toptab                  = False;               /* False means bottom tab bar */
 #endif // TAB_PATCH
 #if BAR_HEIGHT_PATCH
-static const int bar_height              = 0;   /* 0 means derive from font, >= 1 explicit height */
+static const int bar_height              = 20;   /* 0 means derive from font, >= 1 explicit height */
 #endif // BAR_HEIGHT_PATCH
 #if BAR_PADDING_PATCH
 static const int vertpad                 = 10;  /* vertical padding of bar */
-static const int sidepad                 = 10;  /* horizontal padding of bar */
+static const int sidepad                 = 20;  /* horizontal padding of bar */
 #endif // BAR_PADDING_PATCH
 #if FOCUSONCLICK_PATCH
 static const int focusonwheel            = 0;
@@ -106,11 +106,11 @@ static void (*bartabmonfns[])(Monitor *) = { NULL /* , customlayoutfn */ };
 #if BAR_PANGO_PATCH
 static const char font[]                 = "GohuFont Nerd Font 12";
 #else
-static const char *fonts[]     = {"mononoki Nerd Font:size=12:antialias=true:autohint=true",
+static const char *fonts[]     = {"mononoki Nerd Font Mono:size=12",
                                   "FontAwesome:size=1:antialias=true:autohint=true",
 						     	};
 #endif // BAR_PANGO_PATCH
-static const char dmenufont[]            = "GohuFont Nerd Font:size=12";
+static const char dmenufont[]            = "mononoki Nerd Font Mono:size=12";
 
 #if BAR_FLEXWINTITLE_PATCH
 static char c000000[]                    = "#000000"; // placeholder value
@@ -118,17 +118,17 @@ static char c000000[]                    = "#000000"; // placeholder value
 
 // THE COLORS //
 static char normfgcolor[]                = "#81a1c1";
-static char normbgcolor[]                = "#282a36";
-static char normbordercolor[]            = "#282a36";
+static char normbgcolor[]                = "#3b4252";
+static char normbordercolor[]            = "#3b4252";
 static char normfloatcolor[]             = "#88c0d0";
 
 static char selfgcolor[]                 = "#f8f8f2";
-static char selbgcolor[]                 = "#282a36";
-static char selbordercolor[]             = "#282a36";
+static char selbgcolor[]                 = "#3b4252";
+static char selbordercolor[]             = "#3b4252";
 static char selfloatcolor[]              = "#88c0d0";
 
 static char titlenormfgcolor[]           = "#88c0d0";
-static char titlenormbgcolor[]           = "#282a36";
+static char titlenormbgcolor[]           = "#3b4252";
 static char titlenormbordercolor[]       = "#88c0d0";
 static char titlenormfloatcolor[]        = "#88c0d0";
 
@@ -138,23 +138,23 @@ static char titleselbordercolor[]        = "#88c0d0";
 static char titleselfloatcolor[]         = "#88c0d0";
 
 static char tagsnormfgcolor[]            = "#81a1c1";
-static char tagsnormbgcolor[]            = "#282a36";
+static char tagsnormbgcolor[]            = "#3b4252";
 static char tagsnormbordercolor[]        = "#88c0d0";
 static char tagsnormfloatcolor[]         = "#88c0d0";
 
 static char tagsselfgcolor[]             = "#f8f8f2";
-static char tagsselbgcolor[]             = "#282a36";
+static char tagsselbgcolor[]             = "#3b4252";
 static char tagsselbordercolor[]         = "#88c0d0";
 static char tagsselfloatcolor[]          = "#88c0d0";
 
 static char hidfgcolor[]                 = "#88c0d0";
-static char hidbgcolor[]                 = "#282a36";
+static char hidbgcolor[]                 = "#3b4252";
 static char hidbordercolor[]             = "#88c0d0";
 static char hidfloatcolor[]              = "#f76e0c";
 
 static char urgfgcolor[]                 = "#88c0d0";
-static char urgbgcolor[]                 = "#282a36";
-static char urgbordercolor[]             = "#2e3440";
+static char urgbgcolor[]                 = "#3b4252";
+static char urgbordercolor[]             = "#3b4252";
 static char urgfloatcolor[]              = "#88c0d0";
 
 #if BAR_FLEXWINTITLE_PATCH
@@ -329,7 +329,7 @@ static const char *const autostart[] = {
 	"picom", "--experimental-backends", NULL,
 	"slstatus", NULL,
 	"dunst", NULL,
-	"feh", "--bg-fill", "Downloads/321322.png", NULL,
+	"feh", "--bg-fill", "/home/matthew/Downloads/nord.png", NULL,
 	NULL /* terminate */
 };
 #endif // COOL_AUTOSTART_PATCH
@@ -373,10 +373,13 @@ static Sp scratchpads[] = {
 	[DEFAULT_TAGS]        = { "", "", "", "", "", "", "7", "8", "", "", "", "", "", "", "", "", "", "" },
 }; */
 
-static char *tagicons[][NUMTAGS*2] = {
+/*static char *tagicons[][NUMTAGS*2] = { 
 	[DEFAULT_TAGS]        = { "home", "dev", "msg", "www", "game", "file", "7", "8", "spt", "", "", "", "", "", "", "", "", "" },
-};
+}; */
 
+static char *tagicons[][NUMTAGS*2] = {
+	[DEFAULT_TAGS]        = { "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "" },
+};
 #if BAR_TAGGRID_PATCH
 /* grid of tags */
 #define SWITCHTAG_UP                1 << 0
@@ -492,13 +495,13 @@ static const BarRule barrules[] = {
 	#if BAR_STATUS2D_PATCH && BAR_STATUSCMD_PATCH
 	{ 'A',      0,     BAR_ALIGN_RIGHT,  width_status2d,          draw_status2d,          click_statuscmd,         "status2d" },
 	#elif BAR_STATUS2D_PATCH
-	{ '-1',      0,     BAR_ALIGN_RIGHT,  width_status2d,          draw_status2d,          click_status2d,          "status2d" },
+	{ -1,      0,     BAR_ALIGN_RIGHT,  width_status2d,          draw_status2d,          click_status2d,          "status2d" },
 	#elif BAR_POWERLINE_STATUS_PATCH
 	{  0,       0,     BAR_ALIGN_RIGHT,  width_pwrl_status,       draw_pwrl_status,       click_pwrl_status,       "powerline_status" },
 	#elif BAR_STATUS_PATCH && BAR_STATUSCMD_PATCH
 	{  0,       0,     BAR_ALIGN_RIGHT,  width_status,            draw_status,            click_statuscmd,         "status" },
 	#elif BAR_STATUS_PATCH
-	{ 'A',      0,     BAR_ALIGN_RIGHT,  width_status,            draw_status,            click_status,            "status" },
+	{ -1,      0,     BAR_ALIGN_RIGHT,  width_status,            draw_status,            click_status,            "status" },
 	#endif // BAR_STATUS2D_PATCH | BAR_STATUSCMD_PATCH
 	#if BAR_FLEXWINTITLE_PATCH
 	{ -1,       0,     BAR_ALIGN_NONE,   width_flexwintitle,      draw_flexwintitle,      click_flexwintitle,      "flexwintitle" },
