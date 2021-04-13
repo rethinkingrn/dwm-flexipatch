@@ -429,7 +429,8 @@ static const Rule rules[] = {
 	RULE(.class = "VSCodium", .tags = 1 << 1)
 	RULE(.class = "discord", .tags = 1 << 2)
 	RULE(.class = "Steam", .tags = 1 << 4)
-	RULE(.class = "Pcmanfm", .tags = 1 << 5)
+	RULE(.class = "Pcmanfm", .tags= 1 << 5)
+    RULE(.class = "VirtualBox Manager", .tags= 1 << 6)
 	#if SCRATCHPADS_PATCH
 	RULE(.instance = "spterm", .tags = SPTAG(0), .isfloating = 1)
 	#endif // SCRATCHPADS_PATCH
