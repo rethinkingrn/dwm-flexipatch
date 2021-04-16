@@ -104,9 +104,9 @@ static void (*bartabmonfns[])(Monitor *) = { NULL /* , customlayoutfn */ };
 #endif // MONOCLE_LAYOUT
 #endif // BAR_TABGROUPS_PATCH
 #if BAR_PANGO_PATCH
-static const char font[]                 = "GohuFont Nerd Font 12";
+static const char font[]                 = "VictorMono Nerd Font Mono 12";
 #else
-static const char *fonts[]     = {"mononoki Nerd Font Mono:size=12",
+static const char *fonts[]     = {"GohuFont Nerd Font Mono:size=12",
                                   "FontAwesome:size=1:antialias=true:autohint=true",
 						     	};
 #endif // BAR_PANGO_PATCH
@@ -329,7 +329,7 @@ static const char *const autostart[] = {
 	"picom", "--experimental-backends", NULL,
 	"slstatus", NULL,
 	"dunst", NULL,
-	"feh", "--bg-fill", "/home/matthew/Downloads/nord.png", NULL,
+	"feh", "--bg-fill", "/home/matthew/git/nord.png", NULL,
 	NULL /* terminate */
 };
 #endif // COOL_AUTOSTART_PATCH
@@ -911,7 +911,7 @@ static Key keys[] = {
 	{ MODKEY|Mod4Mask,              XK_9,          incrovgaps,             {.i = +1 } },
 	{ MODKEY|Mod4Mask|ShiftMask,    XK_9,          incrovgaps,             {.i = -1 } },
 	{ MODKEY|Mod4Mask,              XK_0,          togglegaps,             {0} },
-	{ MODKEY|Mod4Mask|ShiftMask,    XK_0,          defaultgaps,            {0} },
+	{ MODKEY|ControlMask|ShiftMask,    XK_0,          defaultgaps,            {0} },
 	#endif // VANITYGAPS_PATCH
 	{ MODKEY,                       XK_Tab,        view,                   {0} },
 	#if SHIFTVIEW_PATCH
